@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseAI — Smart Course Recommender</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+
+    <!-- NAV -->
+    <nav>
+        <div class="wrap nav-inner">
+            <div class="logo">⚡ CourseAI</div>
+            <div class="nav-links">
+                <a onclick="scrollToSection('how')">How it Works</a>
+                <a onclick="scrollToSection('recommender')">Recommender</a>
+                <a onclick="scrollToSection('catalog')">Catalog</a>
+                <a onclick="scrollToSection('about')">AI Engine</a>
+            </div>
+            <button class="nav-cta" onclick="scrollToSection('recommender')">Try It Free</button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="wrap">
+            <div class="hero-badge"><span></span> AI-Powered · Similarity Learning · Profile Vectors</div>
+            <h1>Find the <span class="grad">Perfect Course</span><br>Made For You</h1>
+            <p class="hero-sub">Our AI engine builds your unique learning profile vector and matches it against
+                thousands of courses using cosine similarity — delivering recommendations that actually fit.</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-num">30+</div>
+                    <div class="stat-label">Courses</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">8</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">TF-IDF</div>
+                    <div class="stat-label">Algorithm</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">98%</div>
+                    <div class="stat-label">Match Accuracy</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section" id="how">
+        <div class="wrap reveal">
+            <div class="section-title">How It Works</div>
+            <div class="section-sub">Four steps from your interests to perfect course matches</div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-num">01</div>
+                    <div class="step-icon">🧑‍💻</div>
+                    <h3>Build Your Profile</h3>
+                    <p>Enter your interests, preferred difficulty level, and learning goals to create your unique
+                        learner profile.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">02</div>
+                    <div class="step-icon">📐</div>
+                    <h3>Vectorize Interests</h3>
+                    <p>Your profile is transformed into a high-dimensional TF-IDF vector — a mathematical fingerprint of
+                        your preferences.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">03</div>
+                    <div class="step-icon">🔍</div>
+                    <h3>Similarity Learning</h3>
+                    <p>Cosine similarity computes the angle between your profile vector and every course vector in the
+                        database.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">04</div>
+                    <div class="step-icon">🎯</div>
+                    <h3>Ranked Results</h3>
+                    <p>Top courses are ranked by a blended score: 80% similarity + 20% rating, boosted by difficulty
+                        match.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECOMMENDER -->
+    <section class="app-section" id="recommender">
+        <div class="wrap">
+            <div class="reveal">
+                <div class="section-title">Course Recommender</div>
+                <div class="section-sub">Fill in your profile and get instant AI-powered recommendations</div>
+            </div>
+            <div class="app-grid">
+                <!-- Profile Panel -->
+                <div class="profile-panel reveal">
+                    <div class="panel-title">Your Learning Profile</div>
+
+                    <div class="form-group">
+                        <label class="form-label">Your Name</label>
+                        <input type="text" class="form-input" id="userName" placeholder="e.g. Arjun Sharma">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Quick Interest Tags</label>
+                        <div class="interest-tags" id="interestTags">
+                            <span class="int-tag" data-val="python programming">Python</span>
+                            <span class="int-tag" data-val="machine learning AI">Machine Learning</span>
+                            <span class="int-tag" data-val="web development javascript">Web Dev</span>
+                            <span class="int-tag" data-val="data science statistics">Data Science</span>
+                            <span class="int-tag" data-val="cybersecurity hacking">Security</span>
+                            <span class="int-tag" data-val="mobile android ios">Mobile</span>
+                            <span class="int-tag" data-val="deep learning neural networks">Deep Learning</span>
+                            <span class="int-tag" data-val="cloud devops deployment">Cloud/DevOps</span>
+                            <span class="int-tag" data-val="design ui ux visual">Design</span>
+                            <span class="int-tag" data-val="business management excel">Business</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Describe Your Interests</label>
+                        <textarea class="form-textarea" id="userInterests"
+                            placeholder="e.g. I love python and want to learn machine learning and data analysis..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Difficulty Preference</label>
+                        <select class="form-select" id="diffPref">
+                            <option value="Beginner">Beginner — Starting Fresh</option>
+                            <option value="Intermediate" selected>Intermediate — Some Experience</option>
+                            <option value="Advanced">Advanced — Professional Level</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">How Many Recommendations?</label>
+                        <select class="form-select" id="topN">
+                            <option value="3">Top 3</option>
+                            <option value="5" selected>Top 5</option>
+                            <option value="8">Top 8</option>
+                        </select>
+                    </div>
+
+                    <button class="btn-recommend" id="recBtn" onclick="recommend()">
+                        <span class="btn-text">⚡ Get My Recommendations</span>
+                        <span class="btn-spinner"><span class="spinner"></span> Analyzing...</span>
+                    </button>
+                </div>
+
+                <!-- Results Panel -->
+                <div class="results-panel" id="resultsPanel">
+                    <div class="empty-state" id="emptyState">
+                        <div class="empty-icon">🎓</div>
+                        <p>Fill in your profile and hit <strong>Get My Recommendations</strong><br>to see your
+                            personalized course matches.</p>
+                    </div>
+                    <div id="resultsContent" style="display:none">
+                        <div class="results-header">
+                            <div class="panel-title" id="resultsTitle">Your Top Courses</div>
+                            <div class="results-count" id="resultsCount"></div>
+                        </div>
+                        <div id="courseCards"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATALOG -->
+    <section class="catalog-section" id="catalog">
+        <div class="wrap reveal">
+            <div class="section-title">Course Catalog</div>
+            <div class="section-sub">Browse all available courses — 30 curated learning paths</div>
+            <div class="catalog-controls">
+                <input class="search-box" type="text" id="searchBox" placeholder="🔍  Search courses..."
+                    oninput="filterCatalog()">
+                <button class="filter-btn active" data-cat="All" onclick="setCatFilter(this)">All</button>
+                <button class="filter-btn" data-cat="AI/ML" onclick="setCatFilter(this)">AI/ML</button>
+                <button class="filter-btn" data-cat="Data Science" onclick="setCatFilter(this)">Data Science</button>
+                <button class="filter-btn" data-cat="Web Dev" onclick="setCatFilter(this)">Web Dev</button>
+                <button class="filter-btn" data-cat="Security" onclick="setCatFilter(this)">Security</button>
+                <button class="filter-btn" data-cat="Mobile" onclick="setCatFilter(this)">Mobile</button>
+            </div>
+            <div class="catalog-grid" id="catalogGrid"></div>
+        </div>
+    </section>
+
+    <!-- AI ENGINE -->
+    <section class="ai-section" id="about">
+        <div class="wrap">
+            <div class="ai-grid">
+                <div class="reveal">
+                    <div class="section-title">The AI Engine</div>
+                    <div class="section-sub" style="margin-bottom:28px">How similarity learning powers every
+                        recommendation</div>
+                    <ul class="ai-points">
+                        <li class="ai-point">
+                            <div class="ai-dot"></div>
+                            <div>
+                                <strong>TF-IDF Vectorization</strong>
+                                <p>Course tags, categories and descriptions are converted into weighted term-frequency
+                                    vectors — capturing what each course is truly about.</p>
+                            </div>
+                        </li>
+                        <li class="ai-point">
+                            <div class="ai-dot" style="background:var(--accent2)"></div>
+                            <div>
+                                <strong>Profile Vector Construction</strong>
+                                <p>Your interests are embedded in the same vector space as the courses, creating a
+                                    mathematical representation of your learning DNA.</p>
+                            </div>
+                        </li>
+                        <li class="ai-point">
+                            <div class="ai-dot" style="background:var(--accent3)"></div>
+                            <div>
+                                <strong>Cosine Similarity Matching</strong>
+                                <p>The angle between your profile vector and each course vector determines relevance.
+                                    Closer angle = better match, regardless of vector magnitude.</p>
+                            </div>
+                        </li>
+                        <li class="ai-point">
+                            <div class="ai-dot" style="background:var(--gold)"></div>
+                            <div>
+                                <strong>Blended Scoring</strong>
+                                <p>Final score = 80% cosine similarity + 20% course rating, adjusted by a difficulty
+                                    preference multiplier for precision matching.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="reveal">
+                    <div class="ai-visual">
+                        <div class="vector-demo">
+                            <div class="vec-label">User Profile Vector</div>
+                            <div class="vec-row" id="userVec"></div>
+                            <div class="vec-arrow">↕ cosine similarity</div>
+                            <div class="vec-label">Course Vector (Python for ML)</div>
+                            <div class="vec-row" id="courseVec"></div>
+                            <div class="sim-score-display">
+                                <div class="sim-val" id="simVal">0.87</div>
+                                <div class="sim-desc">Similarity Score — Higher is Better Match</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="wrap">
+            <strong>CourseAI</strong> · Smart Recommendation System · AI Subject Project<br>
+            <span style="display:block;margin: 12px 0; color:var(--text); font-weight:500">
+                Created by <strong>Mudassir M Beg</strong> (B.Tech CSE Student)
+            </span>
+            <span style="margin-top:8px;display:block">Built with TF-IDF Vectorization · Cosine Similarity · Profile
+                Vectors · Python</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
